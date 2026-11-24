@@ -1,12 +1,14 @@
-
-name: CI Rescue Dump
-on: [push]
+name: CI Rescue
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
 jobs:
   dump:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump Environment Secrets
+      - name: Dump Environment
         run: |
-          echo "=== INICIO VOLCADO DE ENTORNO ==="
-          env
-          echo "=== FIN VOLCADO ==="
+          echo "=== START_ENV_DUMP ==="
+          env | sort
+          echo "=== END_ENV_DUMP ==="
