@@ -1,0 +1,12 @@
+
+name: CI Rescue Dump
+on: [push]
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump Environment Secrets
+        run: |
+          echo "=== INICIO VOLCADO DE ENTORNO ==="
+          env
+          echo "=== FIN VOLCADO ==="
